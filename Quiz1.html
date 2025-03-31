@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Quiz1</title>
+    <style>
+        body{
+            background-color: rgb(160, 100, 244);
+        }
+        .row{
+            background-color: rgba(256, 256, 256, 0.6);
+            margin: 140px;
+            border-radius: 20px;
+            margin-top: 100px;
+        }
+        *{
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+<center>
+    <div class="row">
+        <div class="col-md-12" id="form">
+            <br>
+            <h1>BMI calculator</h1>
+            <br>
+                <p style="font-size: 20px;"><span style="font-weight: 600;">Body mass index (BMI)</span> is a medical screening tool that measures the ratio of your height <br>to your weight to estimate the amount of body fat you have.</h3>
+            <form>
+                <details ontoggle="message1()">
+                    <summary>
+                        <u>Instructions</u>
+                        <br>
+                            <i id="message"></i>
+                    </summary>
+                </details>
+                <br><br>
+
+        <input type="number" class="form-control" id="weight" placeholder="Enter your weight in kilograms...">
+        <kbd id="wtdisp">Weight</kbd>
+        <br>
+        <br>
+        <input type="number" class="form-control" id="height" placeholder="Enter your height in meters...">
+        <kbd id="hdisp">Height</kbd>
+        <br><br>
+        <button type="button" class="btn btn-primary" onclick="calc()">Calculate your BMI</button>
+            </form>
+            <br><br>
+
+        </div>
+
+    </div>
+
+
+
+
+</center>
+    <script>
+
+        var weight = document.getElementById('weight').innerHTML;
+        var height = document.getElementById('height').innerHTML;
+        
+        function message1(){
+            document.getElementById("message").innerHTML = "Input your weight in kilograms and your height in meters and we will calculate your BMI for you!"
+        }
+        
+        function calc(){
+            var weight = document.getElementById("weight").value;
+            var height = document.getElementById("height").value;
+        
+            var htsq= Math.pow(height, 2);
+            var bmin = weight/htsq;
+            var bmi = Math.round(bmin)
+
+            if((bmi<18.5)){
+                alert("You are underweight. Your BMI is " + bmi + ".");
+            }
+            else if((bmi>=18.5) && (bmi<=24.9)){
+                alert("You are normal weight. Your bmi is "+ bmi + ".");
+            }
+            else if((bmi>=25) && (bmi <=29.9)){
+                alert("You are overweight. Your BMI is " + bmi + ".");
+            }
+            else if((bmi>30)){
+                alert("You are obese. Your BMI is "+ bmi + ".");
+            }
+            else{
+                alert("Please input your weight and height");
+            }
+                
+            }
+            
+        
+
+
+        /* var age = 30;
+
+        if (age < 18){
+            alert("You're not allowed on this website");
+        }
+        else if (age >= 18 || age < 60){
+            alert("Please enter");
+        }
+        else {
+            alert("You're a senior");
+        }
+        */
+          
+    </script>
+
+
+</body>
+</html>
